@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus Slots Machine</title>
+    <link rel="icon" href="../ressources/Logo2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Image de fond sous-marine -->
+    <div class="background"></div>
+
+    <!-- Bouton de retour à l'accueil -->
+    <div class="header">
+        <div id="title">
+            <a id="title-title" href="../main_loggedin/index.html">🏠 Retour à l'Accueil</a>            
+        </div>
+    </div>
+
+    <!-- Score Display -->
+    <div id="scoreBoard">
+        <span>Score: </span><span id="scoreValue">0</span>
+      </div>
+      <button onclick="getScores()" id="showScoresButton">Show Scores</button>
+      <div id="scoresDisplay"></div>
+
+    <!-- Slot Machine Container -->
+    <div class="slots">
+        <div class="reel"></div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+    </div>
+
+    <div id="debug" class="debug"></div>
+
+    <!-- Octopus Tentacle-style button -->
+    <button id="spinButton">Spin</button> 
+
+    <script src="gamble.js"></script>
+
+    <!-- Add this near your score display -->
+    <div class="server-panel">
+    <h3>Score History</h3>
+    <ul id="scoreHistory"></ul>
+    <button id="refreshHistory">Refresh History</button>
+</div>
+</body>
+</html>

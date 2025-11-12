@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Royale - Plinko</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <link rel='stylesheet' type='text/css' media='screen' href='plinko.css'>
+    <link rel="icon" href="../ressources/Logo2.ico" type="image/x-icon">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="sketchplinko.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div id="title" >
+          <a id="title-title" href="../main_loggedin/index.html">Fortune Royale</a>            
+      </div>
+    </div>
+
+    <div class="button">
+      <button onclick="myFunction()" id="launchBallButton">Launch ball</button>
+      <div class="pointsDisplay">
+        <span>Points: </span><span id="scoreValue">0</span>
+      </div>
+      <button onclick="Replay()" id="replayButton">Replay</button>
+      <button onclick="getScores()" id="showScoresButton">Show Scores</button>
+    </div>
+
+    <div class="secondLine">
+
+     
+ 
+
+      <div class="container-2-box" id="sketch">
+          <p></p>   
+      </div>
+   </div>
+  </body>
+</html>
