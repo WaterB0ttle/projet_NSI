@@ -3,18 +3,18 @@
   src: url('../ressources/fonts/plasmatica.open.ttf');
 }
 
-/* ======= Score bien encadré ======= */
+/* ======= Score bien encadré - DÉPLACÉ À GAUCHE ======= */
 #scoreBoard {
   position: fixed;
   top: 10%;
-  right: 50px;
+  left: 50px; /* Changé de right à left */
   font-size: 2.5rem;
   color: white;
   padding: 15px 25px;
   border-radius: 10px;
   font-weight: bold;
   text-align: center;
-  background: rgba(0, 0, 0, 0.5); /* Même fond que le bouton d'accueil */
+  background: rgba(0, 0, 0, 0.5);
   border: 3px solid white;
   transition: 0.3s;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
@@ -25,21 +25,21 @@
 }
 
 #scoreValue {
-  color: #ffd700; /* Or */
+  color: #ffd700;
   font-size: 3rem;
 }
 
 .header {
   position: fixed;
-  left:1vw;
+  left: 1vw;
   top: 1vw;
   z-index: 49;
-  display:inline;
+  display: inline;
   padding: 1%;
-  font-family:'plasmatica-open';
+  font-family: 'plasmatica-open';
 }
 
-#title-title {  /* faire un degrade de couleurs sur le titre*/
+#title-title {
   background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
@@ -47,79 +47,37 @@
 
 #title {
   background: linear-gradient(135deg, rgba(182,105,169,1) 0%, rgba(111,8,8,1) 31%, rgba(19,72,168,1) 65%, rgba(182,105,169,1) 100%);
-
   text-align: center;
   border-style: none;
-  outline:none;
+  outline: none;
   padding: 2%;
   border-radius: 3vw;
   border-color: #14dcdc;
-  font-size:2vw;
+  font-size: 2vw;
   box-shadow: 0 0 65px 5px #14dcdc;
   background-color: black;
   align-content: center;
 }
 
-
-
-/* Score display styling (right side, ocean themed) */
-.score {
-  position: fixed;
-  top: 50%;
-  right: 30px;
-  transform: translateY(-50%);
-  font-family: Arial, sans-serif;
-  font-size: 2rem;
-  color: #fff;
-  background-color: #2b5d84; /* Ocean blue */
-  border: 2px solid #1a3d5e;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Debug box */
-.debug {
-  position: fixed;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 4px;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  font-family: monospace;
-  font-size: 1.6rem;
-}
-
-html, body {
-  height: 100%;
-  background: linear-gradient(to bottom, #003459, #007ea7); /* Underwater gradient */
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background: url('./Wealth-of-Abyss-Octopus-2D-Slot-Logo.jpg.webp') no-repeat center center fixed; 
-  background-size: cover;
-}
-
-/* Slot machine container (with ocean colors) */
+/* Machine à sous CENTRÉE */
 .slots {
-  position: relative;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 276.5px;
   height: 237px;
   display: flex;
   justify-content: space-between;
   padding: 23.7px;
-  background: linear-gradient(45deg, #195a7b 0%, #1c7185 100%); /* Darker ocean gradient */
+  background: linear-gradient(45deg, #195a7b 0%, #1c7185 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   border-right: 1px solid rgba(255, 255, 255, 0.6);
   border-left: 1px solid rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+  z-index: 10;
 }
 
 .slots::before, .slots::after {
@@ -141,7 +99,74 @@ body {
   transform: translate(200%, -50%);
 }
 
-/* Animation for win state */
+/* Bouton spin CENTRÉ sous la machine */
+#spinButton {
+  position: fixed;
+  left: 50%;
+  top: calc(50% + 150px); /* Positionné sous la machine */
+  transform: translateX(-50%);
+  width: 40px;
+  height: 200px;
+  background: radial-gradient(circle, #8b5e3c, #603814);
+  border: 2px solid #3a2a16;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 10;
+}
+
+#spinButton::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #d1a685, #b58463);
+  border-radius: 50%;
+}
+
+#spinButton:active {
+  transform: translateX(-50%) rotate(15deg);
+  transition: transform 0.2s ease;
+}
+
+#spinButton:hover {
+  background: radial-gradient(circle, #a67550, #8b5e3c);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 7px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Debug box centré en haut */
+.debug {
+  position: fixed;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-family: monospace;
+  font-size: 1.6rem;
+  z-index: 10;
+}
+
+/* Background général */
+html, body {
+  height: 100%;
+  background: linear-gradient(to bottom, #003459, #007ea7);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: url('./Wealth-of-Abyss-Octopus-2D-Slot-Logo.jpg.webp') no-repeat center center fixed; 
+  background-size: cover;
+}
+
+/* Animations pour les gains */
 @keyframes win1 {
   0% {
     background: linear-gradient(45deg, coral 0%, orange 100%);
@@ -164,7 +189,6 @@ body {
   }
 }
 
-/* Win state animations */
 .slots.win1 {
   animation: win1 200ms steps(2, end) infinite;
 }
@@ -173,7 +197,7 @@ body {
   animation: win2 200ms steps(2, end) infinite;
 }
 
-/* Slot reel styling with octopus icons */
+/* Slot reel styling */
 .slots .reel {
   position: relative;
   width: 79px;
@@ -181,7 +205,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   overflow: hidden;
-  background-image: url('https://assets.codepen.io/439000/slotreel.webp'); /* Original fruit icon sprite */
+  background-image: url('https://assets.codepen.io/439000/slotreel.webp');
   background-position: 0 0;
   background-repeat: repeat-y;
 }
@@ -197,88 +221,19 @@ body {
   box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Octopus Tentacle-style spin button */
-#spinButton {
-  position: fixed;
-  left: 130px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px; /* Wider for tentacle */
-  height: 200px; /* Tall height for the tentacle */
-  background: radial-gradient(circle, #8b5e3c, #603814); /* Tentacle texture */
-  border: 2px solid #3a2a16; /* Dark border for depth */
-  border-radius: 20px; /* Rounded corners */
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-
-#spinButton::before {
-  /* Tentacle suction cups */
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 30px;
-  background: radial-gradient(circle, #d1a685, #b58463);
-  border-radius: 50%;
-}
-
-#spinButton:active {
-  transform: translateY(-50%) rotate(15deg); /* Rotate the tentacle slightly */
-  transition: transform 0.2s ease;
-}
-
-#spinButton:hover {
-  background: radial-gradient(circle, #a67550, #8b5e3c);
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 7px 12px rgba(0, 0, 0, 0.5);
-}
-
-#showScoresButton {
-  border: none;
-  font-family: 'screaming-neon';
-  font-size: 2vw;
-  border-radius: 2vw;
-  padding: 1%;
-  transition: 0.5s;
-  color: #FFD700;
-  background: rgb(97, 0, 97);
-  background: linear-gradient(75deg, rgba(97, 0, 97, 1) 0%, rgba(255, 104, 253, 0.797) 100%);
-  animation: pulsate 1s ease-out infinite;
-  animation-play-state: paused;
-}
-
-#showScoresButton:hover {
-  -ms-transform: scale(1.2); /* IE 9 */
-  -webkit-transform: scale(1.2); /* Safari 3-8 */
-  transform: scale(1.2);
-  color: #ffe866;
-}
-
-#scoresDisplay {
-  margin-top: 20px;
-  font-family: 'screaming-neon';
-  font-size: 2vw;
-  color: #FFD700;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 1vw;
-  border: 2px solid #FFD700;
-  box-shadow: 0 0 15px #FFD700;
-}
-
+/* Panneau historique DÉPLACÉ À DROITE */
 .server-panel {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.7);
   padding: 15px;
   border-radius: 10px;
   border: 2px solid #FFD700;
   color: white;
   max-width: 250px;
+  z-index: 10;
 }
 
 #scoreHistory {
@@ -295,12 +250,75 @@ body {
   border-left: 3px solid #FFD700;
 }
 
-#refreshHistory {
+/* Bouton Effacer l'Historique */
+#clearHistory {
+  width: 100%;
+  padding: 10px;
   background: linear-gradient(135deg, #7D0000, #FF6B6B);
   color: white;
   border: none;
-  padding: 8px 15px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1em;
   margin-top: 10px;
+}
+
+#clearHistory:hover {
+  background: linear-gradient(135deg, #8D0000, #FF7B7B);
+}
+
+/* Compteur de victoires en bas à GAUCHE */
+.victory-counter {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffd700;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  z-index: 1000;
+  min-width: 100px;
+}
+
+.victory-title {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.victory-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: #4CAF50;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+}
+
+/* Affichage du score actuel */
+#scoresDisplay {
+  position: fixed;
+  left: 50px;
+  top: 20%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  padding: 15px;
+}
+
+.current-score h3 {
+  margin: 0 0 10px 0;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.score-value-large {
+  font-size: 2em;
+  font-weight: bold;
+  color: #4CAF50;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,27 +19,35 @@
 
   <body>
     <div class="header">
-      <div id="title" >
+      <div id="title">
           <a id="title-title" href="../main_loggedin/index.html">Fortune Royale</a>            
       </div>
     </div>
 
     <div class="button">
-      <button onclick="myFunction()" id="launchBallButton">Launch ball</button>
+      <button onclick="myFunction()" id="launchBallButton">Lancer la bille</button>
       <div class="pointsDisplay">
         <span>Points: </span><span id="scoreValue">0</span>
       </div>
-      <button onclick="Replay()" id="replayButton">Replay</button>
-      <button onclick="getScores()" id="showScoresButton">Show Scores</button>
+      <button onclick="Replay()" id="replayButton">Rejouer</button>
     </div>
 
     <div class="secondLine">
-
-     
- 
-
       <div class="container-2-box" id="sketch">
           <p></p>   
+      </div>
+
+      <!-- Compteur de victoires -->
+      <div id="victoryCounter" class="victory-counter">
+          <div class="victory-title">Victoires</div>
+          <div class="victory-number">0</div>
+      </div>
+
+      <!-- Historique des parties -->
+      <div class="server-panel">
+          <h3>Historique des Parties</h3>
+          <ul id="scoreHistory"></ul>
+          <button id="clearHistory">Effacer l'Historique</button>
       </div>
    </div>
   </body>
